@@ -1,11 +1,6 @@
----
-title: "Capstone Project Proposal"
-author: "Danish Salam"
-date: "July 12, 2017"
-output:
-  html_document:
-    keep_md: TRUE
----
+# Capstone Project Proposal
+Danish Salam  
+July 12, 2017  
 
 ##Predict student grade
 

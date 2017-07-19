@@ -32,17 +32,19 @@ Sample data can been seen [here](https://docs.google.com/spreadsheets/d/1CA4ZEcC
 
 Here are the some explorations of the data.
 
-Exploration                             | Numbers
-----------------------------------------| ------------- 
-Avg number of assignment score per student  | 1604
-Avg number of assignment score per student per academic year  | 450
-Avg number of assignment per course | 1628
-Avg number of assignment per course per academic year |416
-Avg number of students per course | 863
-Avg number of students per course per academic year | 212
-Avg number of course per student  | 55
-Avg number of course per student per academic year  | 14
-Avg number of students per type of intervention | 1735
+Exploration                             | Min | Max | Mean | Meadian | Count
+----------------------------------------| ----| ----| -----| --------| -----| 
+Assignment per grading period           | 1   | 107 | 20.66 | 19     | 107|
+Assignment score                        | 0.3 | 100| 86.5| 96| 107|
+
+
+Featurization                                  |   |
+-----------------------------------------------| --|
+Total number of passing assignment by student   |
+Total number of failing assignment by student   |
+Result of each grading period |
+Total number of intervention in grading period|
+Total number of absent in each grading period|
 
 
 ### Approach:

@@ -23,7 +23,7 @@ It will be added the feature for the school to identify the risky students befor
 ### Data:
 Data of this project has been imported from a district school. There are around 3720 observations of 20 variables in the dataset. The dataset contains assignment and grading period scores of around 30 students. 
 
-Sample data can be seen [here](https://docs.google.com/spreadsheets/d/1CA4ZEcCyxxwZpAFJ0Q69NCLpijnFiwEF4aG24j5VBpQ/edit?usp=sharing).
+Sample data can be seen [here](https://github.com/danishsalam/CapstoneProject/blob/master/stdscore_raw.csv).
 
 Following are the descriptions of each variable.
 

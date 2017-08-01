@@ -4,6 +4,8 @@ library(dplyr)
 #install.packages("ggplot2")
 library("ggplot2")
 
+## Project Summar:The purpose of this Code file is to explore the ggplot with different layers.
+
 # remove the untidy data. Clean the surived 
 titanic <- titanic %>% 
   filter(!is.na(survived))

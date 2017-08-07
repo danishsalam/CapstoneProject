@@ -5,6 +5,18 @@ library(readr)
 raw_ss <- read.csv("stdscore_raw.csv")
 df <- tbl_df(raw_ss) 
 
+miss_df <-df[!complete.cases(df),]
+View(miss_df)
+
+df_unique = df %>% 
+  distinct(intervene_type)
+
+
+
+miss_df %>% 
+  mutate(ispassed = if_else(is.na(ispassed) & score<70, 0, 1)) %>% 
+  select (score, ispassed)
+
 df$ispassed <- as.logical(df$ispassed)
 
 

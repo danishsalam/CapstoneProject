@@ -1,0 +1,65 @@
+---
+title: "Data Cleaning"
+author: "Danish Salam"
+date: "August 7, 2017"
+output:
+  html_document:
+    keep_md: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Cleaning  
+
+The purpose of this document is to identify the missing observations in the dataset, remove any extreme values and populate the missing observation with appropriate values. 
+
+
+### Load capstone project data
+
+Load the capstone project data using following commands.
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(readr)
+
+raw_ss <- read.csv("stdscore_raw.csv")
+stdscore <- tbl_df(raw_ss) 
+
+```
+
+### Identify the missing observations.
+Missing values are denoted as NA (not applicable) or NAN (not a number) in R language. There are some functions to identify the missing values in the observations. 
+
+#### complete.cases()
+The function complete.cases() returns a logical vector indicating which cases are complete. By using Not operator (!), you will get the missing observations. For example:
+```{r}
+miss_stdscore <-stdscore[!complete.cases(stdscore),]
+
+```
+#### is.na(x)
+is.na(x) function returns if x is missing/null/NA.
+
+
+### Populate the missing values 
+In stdscore dataset, ispassed variable has some missing values. Let's populate them. According to the school policy, if assignment's score is greater than and equal to 70, the assignment is considered Passed(1) otherwise failed(0). 
+
+```{r}
+stdscore %>% 
+  mutate(ispassed = if_else(is.na(ispassed) & score<70, 0, 1))
+```
+
+In addition to that, interven_type variable also has some missing values and dirty values. To populate the correct and missing values, I have used case_when statement using %in% operator. Use toUpper() function to make this logical statement case-insensitive.
+
+```{r}
+stdscore %>% 
+  mutate(intervene_type = case_when(
+    toupper(.$intervene_type) %in% toupper(c("PH", "Pcall", "Phone", "P/called", "call phone")) ~ "PhoneCall",
+    toupper(.$intervene_type) %in% toupper(c("PC", "ParentConf", "parentconference", "parentconferrence")) ~ "parent Conference",
+    TRUE ~ "Other"
+  ))
+
+```
+
